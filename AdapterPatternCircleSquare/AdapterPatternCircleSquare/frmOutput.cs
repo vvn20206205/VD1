@@ -31,7 +31,7 @@ namespace AdapterPatternCircleSquare {
             // Hiển thị kết quả 
             drawingScale=1;
             DrawingOutput.DrawResult(pnlOutputShape,dataOne,dataTwo,drawingScale,choice);
-            lblResult.Text=Result;
+            lblResult.Text+=Result;
         }
         private void btnExit_Click(object sender,EventArgs e) {
             Application.Exit();

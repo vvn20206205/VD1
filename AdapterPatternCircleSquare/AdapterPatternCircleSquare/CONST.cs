@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AdapterPatternCircleSquare {
+    /// <summary>
+    /// Các hằng số
+    /// </summary>
     public class CONST {
         public enum eCHOICE {
             ROUND_HOLE_SQUARE_PEG = 0
@@ -20,5 +23,6 @@ namespace AdapterPatternCircleSquare {
         public static string CHARACTER_O_DRAW_AXIS = "O";
         public static string CHARACTER_X_DRAW_AXIS = "X";
         public static string CHARACTER_Y_DRAW_AXIS = "Y";
+        public static string CHARACTER_MINUS_DRAW_AXIS = "-";
     }
 }

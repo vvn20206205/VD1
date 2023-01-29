@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace AdapterPatternCircleSquare {
     interface ISquare {
+        #region Methods 
         float GetWidth();
+        #endregion
     }
 }

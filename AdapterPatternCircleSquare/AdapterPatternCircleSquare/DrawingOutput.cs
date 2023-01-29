@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdapterPatternCircleSquare {
+    /// <summary>
+    /// Vẽ kết quả hình lên chính giữa panel.
+    /// </summary>
     internal class DrawingOutput {
+        #region Methods 
         public static void DrawResult(Panel iPanel,float iObjectShapeOne,float iObjectShapeTwo,float iDrawingScale,int Choice) {
             ReSetPanel(iPanel);
             DrawCoordinateAxisOXY(iPanel,iDrawingScale);
@@ -56,7 +60,7 @@ namespace AdapterPatternCircleSquare {
                 _Graphic.DrawString((_iLoop*_DistanceValue/iDrawingScale).ToString(),new Font(CONFIG.FONT_DECAC_AXIS,CONFIG.FONT_SIZE_DECAC_AXIS),new SolidBrush(Color.Red),_OxCenter+_iLoop*_DistanceValue,_OyCenter);
                 _Graphic.DrawLine(new Pen(CONFIG.COLOR_OXY,CONFIG.PEN_SIZE),_OxCenter+_iLoop*_DistanceValue,_DistanceValue,_OxCenter+_iLoop*_DistanceValue,_Scope+_DistanceValue);
                 //vẽ x âm
-                _Graphic.DrawString("-"+(_iLoop*_DistanceValue/iDrawingScale).ToString(),new Font(CONFIG.FONT_DECAC_AXIS,CONFIG.FONT_SIZE_DECAC_AXIS),new SolidBrush(Color.Red),_OxCenter-_iLoop*_DistanceValue,_OyCenter);
+                _Graphic.DrawString(CONST.CHARACTER_MINUS_DRAW_AXIS+(_iLoop*_DistanceValue/iDrawingScale).ToString(),new Font(CONFIG.FONT_DECAC_AXIS,CONFIG.FONT_SIZE_DECAC_AXIS),new SolidBrush(Color.Red),_OxCenter-_iLoop*_DistanceValue,_OyCenter);
                 _Graphic.DrawLine(new Pen(CONFIG.COLOR_OXY,CONFIG.PEN_SIZE),_OxCenter-_iLoop*_DistanceValue,_DistanceValue,_OxCenter-_iLoop*_DistanceValue,_Scope+_DistanceValue);
             }
         }
@@ -73,23 +77,24 @@ namespace AdapterPatternCircleSquare {
                 _Graphic.DrawString((_iLoop*_DistanceValue/iDrawingScale).ToString(),new Font(CONFIG.FONT_DECAC_AXIS,CONFIG.FONT_SIZE_DECAC_AXIS),new SolidBrush(Color.Red),_OxCenter,_OyCenter-_iLoop*_DistanceValue);
                 _Graphic.DrawLine(new Pen(CONFIG.COLOR_OXY,CONFIG.PEN_SIZE),(iPanel.Width-_Scope)/CONST.TWO_TIME,_OyCenter-_iLoop*_DistanceValue,(iPanel.Width+_Scope)/CONST.TWO_TIME,_OyCenter-_iLoop*_DistanceValue);
                 //vẽ y âm
-                _Graphic.DrawString("-"+(_iLoop*_DistanceValue/iDrawingScale).ToString(),new Font(CONFIG.FONT_DECAC_AXIS,CONFIG.FONT_SIZE_DECAC_AXIS),new SolidBrush(Color.Red),_OxCenter,_OyCenter+_iLoop*_DistanceValue);
+                _Graphic.DrawString(CONST.CHARACTER_MINUS_DRAW_AXIS+(_iLoop*_DistanceValue/iDrawingScale).ToString(),new Font(CONFIG.FONT_DECAC_AXIS,CONFIG.FONT_SIZE_DECAC_AXIS),new SolidBrush(Color.Red),_OxCenter,_OyCenter+_iLoop*_DistanceValue);
                 _Graphic.DrawLine(new Pen(CONFIG.COLOR_OXY,CONFIG.PEN_SIZE),(iPanel.Width-_Scope)/CONST.TWO_TIME,_OyCenter+_iLoop*_DistanceValue,(iPanel.Width+_Scope)/CONST.TWO_TIME,_OyCenter+_iLoop*_DistanceValue);
             }
         }
         private static void DrawSquare(Panel iPanel,float iObjectShapeOne,float iDrawingScale,Color iColor) {
             Graphics _Graphic = iPanel.CreateGraphics();
             iObjectShapeOne*=iDrawingScale;
-            float _TopLeftX = (float)((iPanel.Width-iObjectShapeOne)/2);
-            float _TopLeftY = (float)((iPanel.Height-iObjectShapeOne)/2);
+            float _TopLeftX = (float)((iPanel.Width-iObjectShapeOne)/CONST.TWO_TIME);
+            float _TopLeftY = (float)((iPanel.Height-iObjectShapeOne)/CONST.TWO_TIME);
             _Graphic.DrawRectangle(new Pen(iColor),_TopLeftX,_TopLeftY,(float)iObjectShapeOne,(float)iObjectShapeOne);
         }
         private static void DrawCircle(Panel iPanel,float iObjectShapeOne,float iDrawingScale,Color iColor) {
             Graphics _Graphic = iPanel.CreateGraphics();
-            iObjectShapeOne*=2*iDrawingScale;
-            float _TopLeftX = (float)((iPanel.Width-iObjectShapeOne)/2);
-            float _TopLeftY = (float)((iPanel.Height-iObjectShapeOne)/2);
+            iObjectShapeOne*=CONST.TWO_TIME*iDrawingScale;
+            float _TopLeftX = (float)((iPanel.Width-iObjectShapeOne)/CONST.TWO_TIME);
+            float _TopLeftY = (float)((iPanel.Height-iObjectShapeOne)/CONST.TWO_TIME);
             _Graphic.DrawEllipse(new Pen(iColor),_TopLeftX,_TopLeftY,(float)iObjectShapeOne,(float)iObjectShapeOne);
         }
+        #endregion
     }
 }

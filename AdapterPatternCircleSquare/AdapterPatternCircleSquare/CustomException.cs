@@ -2,11 +2,12 @@
 
 namespace AdapterPatternCircleSquare {
     /// <summary>
-    /// Custom Exception 
+    /// Custom Exception: Bạn phải nhập độ dài là số thực và không âm.
     /// </summary>
     class InvalidLengthException : Exception {
-        // Bạn phải nhập độ dài là số thực và không âm.
+        #region Constructor 
         public InvalidLengthException()
         : base("Bạn phải nhập độ dài là số thực và không âm.") { }
+        #endregion
     }
 }

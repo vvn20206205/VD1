@@ -12,12 +12,14 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace AdapterPatternCircleSquare {
-    public partial class frmInput : Form {
+    public partial class frmInput : Form { 
+        #region Constructor 
         public frmInput() {
             InitializeComponent();
             Text=CONFIG.GROUP_NAME;
         }
-        #region Thay đổi giao diện theo người dùng
+        #endregion
+        #region Event Thay đổi giao diện theo người dùng
         private void ReSetInput() {
             txtInputTwo.Texts=CONST.EMPTY_TEXTBOX_CONTENT;
             txtInputOne.Texts=CONST.EMPTY_TEXTBOX_CONTENT;
@@ -72,7 +74,7 @@ namespace AdapterPatternCircleSquare {
                 _frmOutput.DataTwo=_inputDataTwo;
 
                 if(rdoRoundHoleSquarePeg.Checked) {
-                    // TH1
+                    // TH1 dùng adapter
                     RoundHole _inputRoundHoleOne = new RoundHole(_inputDataOne);
                     ISquare _inputSquarePegTwo = new SquarePeg(_inputDataTwo);
 
@@ -82,7 +84,7 @@ namespace AdapterPatternCircleSquare {
                     _frmOutput.Choice=(int)CONST.eCHOICE.ROUND_HOLE_SQUARE_PEG;
                 }
                 if(rdoRoundHoleRoundPeg.Checked) {
-                    // TH2
+                    // TH2 không dùng adapter
                     RoundHole _inputRoundHoleOne = new RoundHole(_inputDataOne);
                     IRound _inputRoundPegTwo = new RoundPeg(_inputDataTwo);
 
