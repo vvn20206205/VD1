@@ -24,6 +24,6 @@ namespace AdapterPatternCircleSquare {
         public override string ToString() {
             return "Đây là đối tượng của lớp RoundPeg.";
         }
-        #endregion 
+        #endregion
     }
 }

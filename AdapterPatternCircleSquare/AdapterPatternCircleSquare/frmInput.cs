@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace AdapterPatternCircleSquare {
-    public partial class frmInput : Form { 
+    public partial class frmInput : Form {
         #region Constructor 
         public frmInput() {
             InitializeComponent();

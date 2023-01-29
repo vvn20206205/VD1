@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AdapterPatternCircleSquare {
-    class SquarePeg : ISquare { 
+    class SquarePeg : ISquare {
         #region Fields 
         private float width;
         #endregion
@@ -21,6 +21,6 @@ namespace AdapterPatternCircleSquare {
         public float GetWidth() {
             return Width;
         }
-        #endregion 
+        #endregion
     }
 }
